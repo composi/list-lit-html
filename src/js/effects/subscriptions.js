@@ -1,5 +1,5 @@
 import {addItem, useFetchedData} from '../effects/messages'
-import {batchEffects} from '@composi/runtime'
+import {batch} from '@composi/runtime'
 
 function handleEnterKey(getState, send) {
   document.addEventListener('keypress', e=> {
@@ -15,4 +15,4 @@ function getData(getState, send) {
   })()
 }
 
-export const subs = batchEffects(handleEnterKey, getData)
+export const subs = batch(handleEnterKey, getData)
