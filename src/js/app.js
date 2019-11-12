@@ -6,7 +6,7 @@ import {actions} from './effects/actions'
 import {subs} from './effects/subscriptions'
 
 // Render title component:
-render(Title('World'), document.querySelector('header'))
+render(Title('Todo List'), document.querySelector('header'))
 
 
 
@@ -48,12 +48,6 @@ const program = {
    */
   subscriptions(getState, send) {
     return subs(getState, send)
-  },
-  /**
-   * @param {State} state
-   */
-  done(state) {
-
   }
 }
 

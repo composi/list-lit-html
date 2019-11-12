@@ -1,7 +1,14 @@
 import { html} from 'lit-html'
 import { updateInputValue, addItem, makeDeletable } from '../effects/messages'
 import { classMap } from 'lit-html/directives/class-map.js'
-
+/**
+ * @typedef {import('../types').State} State
+ * @typedef {import('../types').Send} Send
+ */
+/**
+ * @param {{state: State, send: Send}} props
+ * @return {import('lit-html').TemplateResult} TemplateResult
+ */
 export const TodoList = ({state, send}) =>  html`
   <div>
     <p class="form">

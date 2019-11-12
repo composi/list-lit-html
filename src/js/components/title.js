@@ -2,12 +2,12 @@ import { html } from 'lit-html'
 
 /**
  * @param {string} greeting
- * @returns {import('../types').VNode} VNode
+ * @return {import('lit-html').TemplateResult} TemplateResult
  */
 export function Title(greeting) {
   return html`
     <nav>
-      <h1 class="header--main">Hello, ${greeting}!</h1>
+      <h1 class="header--main">Composi ${greeting}</h1>
     </nav>
   `
 }
