@@ -7,20 +7,18 @@ import {batch} from '@composi/runtime'
  * @typedef {import('../types').State} State
  */
 /**
- * @param {GetState} getState
  * @param {Send} send
  */
-function handleEnterKey(getState, send) {
+function handleEnterKey(send) {
   document.addEventListener('keypress', e=> {
     if (e.keyCode === 13) send(addItem())
   })
 }
 
 /**
- * @param {GetState} getState
  * @param {Send} send
  */
-function getData(getState, send) {
+function getData(send) {
   (async () => {
     const response = await fetch('/src/js/data/state.json')
     /** @type {State} */
