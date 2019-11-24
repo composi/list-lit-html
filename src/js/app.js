@@ -1,9 +1,9 @@
-import { run, union, batchEffects } from '@composi/runtime'
-import {render} from 'lit-html'
+import { run } from '@composi/runtime'
+import { render } from 'lit-html'
 import { Title } from './components/title'
-import { TodoList} from './components/todo-list'
-import {actions} from './effects/actions'
-import {subs} from './effects/subscriptions'
+import { TodoList } from './components/todo-list'
+import { actions } from './effects/actions'
+import { subs } from './effects/subscriptions'
 
 // Render title component:
 render(Title('Todo List'), document.querySelector('header'))

@@ -1,5 +1,5 @@
 import {addItem, useFetchedData} from '../effects/messages'
-import {batch} from '@composi/runtime'
+import { batch } from '@composi/runtime'
 
 /**
  * @typedef {import('../types').GetState} GetState

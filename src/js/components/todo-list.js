@@ -1,4 +1,4 @@
-import { html} from 'lit-html'
+import { html } from 'lit-html'
 import { updateInputValue, addItem, makeDeletable } from '../effects/messages'
 import { classMap } from 'lit-html/directives/class-map.js'
 /**

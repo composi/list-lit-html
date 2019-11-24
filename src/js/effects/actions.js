@@ -1,4 +1,4 @@
-import { Msg, deleteItem} from './messages'
+import { Msg, deleteItem } from './messages'
 
 /**
  * @param {import('../types').State} state
