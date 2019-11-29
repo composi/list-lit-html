@@ -12,8 +12,8 @@ import { classMap } from 'lit-html/directives/class-map.js'
 export const TodoList = ({state, send}) =>  html`
   <div>
     <p class="form">
-      <input @input=${e => send(updateInputValue(e.target.value))} .value="${state.inputValue}" type="text"/>
-      <button @click=${() => send(addItem())} class='add-item'>Add</button>
+      <input @input=${e => send(updateInputValue, e.target.value)} .value="${state.inputValue}" type="text"/>
+      <button @click=${() => send(addItem)} class='add-item'>Add</button>
     </p>
     <ul>
       ${
@@ -25,7 +25,7 @@ export const TodoList = ({state, send}) =>  html`
           return html`
           <li key=${item.key} class=${classMap(classObj)}>
             <span>${item.value}</span>
-            <button @click=${() => send(makeDeletable(item.key))} class='delete-item'>X</button>
+            <button @click=${() => send(makeDeletable, item.key)} class='delete-item'>X</button>
           </li>
         `
         })
