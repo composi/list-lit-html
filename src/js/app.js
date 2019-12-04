@@ -1,4 +1,5 @@
 import { run } from '@composi/runtime'
+import {clone} from '@composi/clone'
 import { render } from 'lit-html'
 import { Title } from './components/title'
 import { TodoList } from './components/todo-list'
@@ -40,7 +41,8 @@ const program = {
    * @param {Send} send
    */
   update(state, msg, send) {
-    return actions(state, msg, send)
+    const prevState = clone(state)
+    return actions(prevState, msg, send)
   },
   /**
    * @param {Send} send

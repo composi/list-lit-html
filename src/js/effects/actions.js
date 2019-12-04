@@ -6,29 +6,28 @@ import { Msg, deleteItem } from './messages'
  * @param {import('../types').Send} send
  */
 export function actions(state, msg, send) {
-  const prevState = {...state}
 
   return Msg.match(msg, {
     updateInputValue: (value) => {
-      prevState.inputValue = value
-      return prevState
+      state.inputValue = value
+      return state
     },
     addItem: () => {
-      if (prevState.inputValue) {
-        prevState.items.push({
-          key: prevState.newKey++,
-          value: prevState.inputValue,
+      if (state.inputValue) {
+        state.items.push({
+          key: state.newKey++,
+          value: state.inputValue,
           deletable: false
         })
-        prevState.inputValue = ''
+        state.inputValue = ''
         document.querySelector('input').focus()
       } else {
         alert('Please provide a value before adding.')
       }
-      return prevState
+      return state
     },
     makeDeletable: (key) => {
-      prevState.items = prevState.items.map(item => {
+      state.items = state.items.map(item => {
         if (item.key === key) {
           item.deletable = true
           setTimeout(() => {
@@ -37,11 +36,11 @@ export function actions(state, msg, send) {
         }
         return item
       })
-      return prevState
+      return state
     },
     deleteItem: (key) => {
-      prevState.items = prevState.items.filter(item => item.key !== key)
-      return prevState
+      state.items = state.items.filter(item => item.key !== key)
+      return state
     },
     useFetchedData: data => data
   })
