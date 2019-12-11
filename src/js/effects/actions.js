@@ -1,13 +1,11 @@
-import { Msg, deleteItem } from './messages'
+import { match, deleteItem } from './messages'
 
 /**
  * @param {import('../types').State} state
  * @param {import('../types').Message} msg
  * @param {import('../types').Send} send
  */
-export function actions(state, msg, send) {
-
-  return Msg.match(msg, {
+export const actions = (state, msg, send) => match(msg, {
     updateInputValue: (value) => {
       state.inputValue = value
       return state
@@ -44,4 +42,3 @@ export function actions(state, msg, send) {
     },
     useFetchedData: data => data
   })
-}

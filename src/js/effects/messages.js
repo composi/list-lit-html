@@ -1,7 +1,18 @@
 import { union } from '@composi/runtime'
 
 /** @type {import('../types').MessageUnion} */
-export const Msg = union('updateInputValue', 'addItem', 'makeDeletable', 'deleteItem', 'useFetchedData')
-
-
-export const { updateInputValue, addItem, makeDeletable, deleteItem, useFetchedData } = Msg
+const Msg = union(
+  'updateInputValue',
+  'addItem',
+  'makeDeletable',
+  'deleteItem',
+  'useFetchedData'
+)
+export const {
+  match,
+  updateInputValue,
+  addItem,
+  makeDeletable,
+  deleteItem,
+  useFetchedData
+} = Msg
