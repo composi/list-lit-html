@@ -1,4 +1,4 @@
-import {addItem, useFetchedData} from '../effects/messages'
+import {AddItem, UseFetchedData} from '../effects/messages'
 import { batch } from '@composi/runtime'
 
 /**
@@ -11,7 +11,7 @@ import { batch } from '@composi/runtime'
  */
 function handleEnterKey(send) {
   document.addEventListener('keypress', e=> {
-    if (e.keyCode === 13) send(addItem)
+    if (e.keyCode === 13) send(AddItem)
   })
 }
 
@@ -23,7 +23,7 @@ function getData(send) {
     const response = await fetch('/src/js/data/state.json')
     /** @type {State} */
     const data = await response.json()
-    send(useFetchedData, data)
+    send(UseFetchedData, data)
   })()
 }
 

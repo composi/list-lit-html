@@ -1,5 +1,6 @@
-import { html } from 'lit-html'
-import { updateInputValue, addItem, makeDeletable } from '../effects/messages'
+import {html} from 'lit-html'
+import {repeat} from 'lit-html/directives/repeat'
+import { UpdateInputValue, AddItem, MakeDeletable } from '../effects/messages'
 import { classMap } from 'lit-html/directives/class-map.js'
 /**
  * @typedef {import('../types').State} State
@@ -12,23 +13,21 @@ import { classMap } from 'lit-html/directives/class-map.js'
 export const TodoList = ({state, send}) =>  html`
   <div>
     <p class="form">
-      <input @input=${e => send(updateInputValue, e.target.value)} .value="${state.inputValue}" type="text"/>
-      <button @click=${() => send(addItem)} class='add-item'>Add</button>
+      <input @input=${e => send(UpdateInputValue, e.target.value)} .value="${state.inputValue}" type="text"/>
+      <button @click=${() => send(AddItem)} class='add-item'>Add</button>
     </p>
     <ul>
-      ${
-        state.items.map(item => {
-          const classObj = {
-            "new-item": true,
-            "remove-item": item.deletable
-          }
-          return html`
-          <li key=${item.key} class=${classMap(classObj)}>
+      ${repeat(state.items, item => item.key, item => {
+        const classObj = {
+          "new-item": true,
+          "remove-item": item.deletable
+        }
+        return html`
+          <li class=${classMap(classObj)}>
             <span>${item.value}</span>
-            <button @click=${() => send(makeDeletable, item.key)} class='delete-item'>X</button>
+            <button  @click=${() => send(MakeDeletable, item.key)} class='delete-item'>X</button>
           </li>
-        `
-        })
+        `})
       }
     </ul>
   </div>
