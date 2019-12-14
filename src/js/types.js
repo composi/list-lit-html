@@ -20,9 +20,9 @@ export function noop() {}
 
 /**
  * Core types for use with view, update, subscriptions and actions.
- * @typedef {import('@composi/runtime').Message} Message
- * @typedef {import('@composi/runtime').Send} Send
- * @typedef {import('@composi/runtime').Program} Program
+ * @typedef {import('@composi/runtime/types').Message} Message
+ * @typedef {import('@composi/runtime/types').Send} Send
+ * @typedef {import('@composi/runtime/types').Program} Program
  * @typedef {() => State} GetState
  */
 
